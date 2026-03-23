@@ -8,13 +8,22 @@ final class Application extends BaseApplication
 {
     public function __construct()
     {
-        try {
-            $version = \Jean85\PrettyVersions::getVersion('mglaman/drupal-check')->getPrettyVersion();
-        } catch (\OutOfBoundsException $e) {
-            $version = '0.0.0';
-        }
+        $version = $this->resolveVersion();
         parent::__construct('Drupal Check', $version);
-        $this->add(new Command\CheckCommand());
+        $this->addCommand(new Command\CheckCommand());
         $this->setDefaultCommand('check', true);
+    }
+
+    private function resolveVersion(): string
+    {
+        foreach (['drudev/drupal-check', 'mglaman/drupal-check'] as $packageName) {
+            try {
+                return \Jean85\PrettyVersions::getVersion($packageName)->getPrettyVersion();
+            } catch (\OutOfBoundsException $e) {
+                // Try the next package alias.
+            }
+        }
+
+        return '0.0.0';
     }
 }
