@@ -1,5 +1,5 @@
 {
-    "name": "mglaman/drupal-check",
+    "name": "drudev/drupal-check",
     "description": "CLI tool for running checks on a Drupal code base",
     "type": "project",
     "license": "GPL-2.0-or-later",
@@ -7,6 +7,10 @@
         {
             "name": "Matt Glaman",
             "email": "nmd.matt@gmail.com"
+        },
+        {
+            "name": "Taras Motuschuk",
+            "email": "mtomekt+dev@gmail.com"
         }
     ],
     "require": {
