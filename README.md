@@ -1,16 +1,16 @@
-# drupal-check [![Build](https://github.com/mglaman/drupal-check/actions/workflows/php.yml/badge.svg)](https://github.com/mglaman/drupal-check/actions/workflows/php.yml) [![CircleCI](https://circleci.com/gh/mglaman/drupal-check.svg?style=svg)](https://circleci.com/gh/mglaman/drupal-check) [![Latest release](https://img.shields.io/github/release/mglaman/drupal-check.svg)](https://github.com/mglaman/drupal-check/releases/latest)
+# drupal-check [![Build](https://github.com/TarasMotuschuk/drupal-check/actions/workflows/php.yml/badge.svg)](https://github.com/TarasMotuschuk/drupal-check/actions/workflows/php.yml) [![CircleCI](https://circleci.com/gh/TarasMotuschuk/drupal-check.svg?style=svg)](https://circleci.com/gh/TarasMotuschuk/drupal-check) [![Latest release](https://img.shields.io/github/release/TarasMotuschuk/drupal-check.svg)](https://github.com/TarasMotuschuk/drupal-check/releases/latest)
 
 Built on [PHPStan](https://github.com/phpstan/phpstan), this static analysis tool will check for correctness (e.g. using a class that doesn't exist), deprecation errors, and more.
 
 Why? While there are many static analysis tools out there, none of them run with the Drupal context in mind. This allows checking contrib modules for deprecation errors thrown by core.
 
-Are you ready for Drupal 11? Check out our [Drupal 9 Readiness](https://github.com/mglaman/drupal-check/wiki/Drupal-9-Readiness) instructions for historical context on how this tool can help.
+Are you ready for Drupal 11? Check out our [Drupal 9 Readiness](https://github.com/TarasMotuschuk/drupal-check/wiki/Drupal-9-Readiness) instructions for historical context on how this tool can help.
 
 ## Sponsors
 
 <a href="https://www.undpaul.de/"><img src="https://www.undpaul.de/themes/custom/undpaul3/logo.svg" alt="undpaul" width="250" /></a> <a href="https://www.optasy.com/"><img src="https://www.optasy.com/images/logo.svg" alt="undpaul" width="200" /></a>
 
-[Would you like to sponsor?](https://github.com/sponsors/mglaman)
+[Would you like to sponsor?](https://github.com/sponsors/TarasMotuschuk)
 
 ## Requirements
 
@@ -21,13 +21,13 @@ Are you ready for Drupal 11? Check out our [Drupal 9 Readiness](https://github.c
 You can install this in your project using Composer as a development dependency like so:
 
 ```
-composer require mglaman/drupal-check --dev
+composer require drudev/drupal-check --dev
 ```
 
 You can also install this globally using Composer like so:
 
 ```
-composer global require mglaman/drupal-check
+composer global require drudev/drupal-check
 ```
 
 Refer to Composer's documentation on how to ensure global binaries are in your PATH: https://getcomposer.org/doc/00-intro.md#manual-installation.
@@ -88,7 +88,7 @@ levels here: https://phpstan.org/user-guide/rule-levels
 If you do not want to run PHPStan at level 2 and only report deprecation messages, use the following instructions
 
 ```shell
-composer remove mglaman/drupal-check
+composer remove drudev/drupal-check
 composer require  --dev phpstan/phpstan \
   phpstan/extension-installer \
   mglaman/phpstan-drupal \
@@ -106,7 +106,7 @@ parameters:
 		- '#Missing cache backend declaration for performance.#'
 		- '#Plugin manager has cache backend specified but does not declare cache tags.#'
 
-	# FROM mglaman/drupal-check/phpstan/base_config.neon
+	# FROM drudev/drupal-check/phpstan/base_config.neon
 	reportUnmatchedIgnoredErrors: false
 	excludePaths:
 		- */tests/Drupal/Tests/Listeners/Legacy/*
@@ -130,13 +130,13 @@ The code can be found at: https://github.com/bbeversdorf/vscode-drupal-check
 
 ## Issues
 
-Submit issues and feature requests here: https://github.com/mglaman/drupal-check/issues.
+Submit issues and feature requests here: https://github.com/TarasMotuschuk/drupal-check/issues.
 
 ### Known Issues
 
 There are conflicts with dependencies shared with other libraries that might be installed on a Drupal project:
 
-* This tool does not work with BLT 9: https://github.com/mglaman/drupal-check/issues/9
+* This tool does not work with BLT 9: https://github.com/TarasMotuschuk/drupal-check/issues/9
 * If you run into issues with other libraries, please submit an issue to this project.
 
 ## Contributing

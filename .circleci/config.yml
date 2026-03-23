@@ -58,7 +58,7 @@ commands:
             composer global config minimum-stability dev
             composer global config prefer-stable true
             composer global config repositories.0 '{"type": "path", "url": "'$CIRCLE_WORKING_DIRECTORY'", "options": { "symlink": false }}'
-            composer global require mglaman/drupal-check "*"
+            composer global require drudev/drupal-check "*"
       - run:
           name: Add Composer global path
           command: |
@@ -120,14 +120,14 @@ jobs:
       - setup-job
       - run:
           name: Remove vendor directory
-          command: rm -rf vendor/mglaman/drupal-check/vendor
+          command: rm -rf vendor/drudev/drupal-check/vendor
       - create-drupal-project
       - run:
           name: Add as a local dependency
           command: |
             cd /tmp/drupal
             composer config repositories.0 '{"type": "path", "url": "'$CIRCLE_WORKING_DIRECTORY'", "options": { "symlink": false }}'
-            composer require mglaman/drupal-check "*"
+            composer require drudev/drupal-check "*"
             ./vendor/bin/drupal-check --version
       - run:
           name: Local - Run against a file

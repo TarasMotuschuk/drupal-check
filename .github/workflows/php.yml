@@ -53,7 +53,7 @@ jobs:
         run: |
           cd ~/drupal
           composer config repositories.0 '{"type":"path","url":"'"$GITHUB_WORKSPACE"'","options":{"symlink":false}}'
-          COMPOSER_MEMORY_LIMIT=-1 composer require mglaman/drupal-check "*@dev"
+          COMPOSER_MEMORY_LIMIT=-1 composer require drudev/drupal-check "*@dev"
       - name: Analyze core/install.php
         run: |
           cd ~/drupal

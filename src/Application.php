@@ -2,6 +2,7 @@
 
 namespace DrupalCheck;
 
+use Composer\InstalledVersions;
 use Symfony\Component\Console\Application as BaseApplication;
 
 final class Application extends BaseApplication
@@ -16,7 +17,17 @@ final class Application extends BaseApplication
 
     private function resolveVersion(): string
     {
-        foreach (['drudev/drupal-check', 'mglaman/drupal-check'] as $packageName) {
+        $rootPackage = InstalledVersions::getRootPackage();
+        $rootPackageName = isset($rootPackage['name']) && is_string($rootPackage['name'])
+            ? $rootPackage['name']
+            : null;
+
+        $packageNames = array_filter([
+            $rootPackageName,
+            'drudev/drupal-check',
+        ]);
+
+        foreach ($packageNames as $packageName) {
             try {
                 return \Jean85\PrettyVersions::getVersion($packageName)->getPrettyVersion();
             } catch (\OutOfBoundsException $e) {
