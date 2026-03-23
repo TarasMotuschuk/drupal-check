@@ -1,12 +1,17 @@
 {
     "name": "drudev/drupal-check",
-    "description": "CLI tool for running checks on a Drupal code base",
+    "description": "Fork of mglaman/drupal-check with updated dependencies (PHP 8.4, Symfony 7, PHPStan 2)",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Matt Glaman",
             "email": "nmd.matt@gmail.com"
+        },
+        {
+            "name": "Taras Motuschuk",
+            "email": "mtomekt+dev@gmail.com",
+            "role": "Maintainer"
         }
     ],
     "require": {
@@ -25,6 +30,9 @@
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-strict-rules": "^2.0",
         "squizlabs/php_codesniffer": "^4.0"
+    },
+    "replace": {
+        "mglaman/drupal-check": "self.version"
     },
     "config": {
         "sort-packages": true,
